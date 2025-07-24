@@ -4,25 +4,17 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Kabeer Shahzad - Portfolio</title>
+  <title>Kabeer Shahzad | Software Developer Portfolio</title>
   <link rel="shortcut icon" href="coding.ico" type="image/x-icon">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&display=swap" rel="stylesheet" />
-
   <style>
     :root {
-      --bg-color: #0f1117;
-      --text-color: #f5f5f5;
-      --accent-color: #00ffd5;
-      --card-bg: rgba(255, 255, 255, 0.04);
-      --glass: blur(12px);
-    }
-
-    body.light-mode {
-      --bg-color: #f6f7fa;
-      --text-color: #1a1a1a;
-      --accent-color: #0078ff;
-      --card-bg: rgba(0, 0, 0, 0.05);
+      --bg: #0f1117;
+      --text: #e5e5e5;
+      --accent: #04d3b0;
+      --card: rgba(255, 255, 255, 0.06);
+      --blur: blur(14px);
     }
 
     * {
@@ -33,70 +25,61 @@
 
     body {
       font-family: 'Outfit', sans-serif;
-      background-color: var(--bg-color);
-      color: var(--text-color);
-      transition: 0.3s ease;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      overflow-x: hidden;
     }
 
-    .toggle-theme {
-      position: fixed;
-      top: 20px;
-      right: 20px;
-      padding: 12px;
-      font-size: 1.2rem;
-      background: var(--card-bg);
-      backdrop-filter: var(--glass);
-      color: var(--text-color);
-      border: none;
-      border-radius: 50%;
-      cursor: pointer;
-      z-index: 1000;
-    }
-
-    .hero {
-      padding: 100px 20px 40px;
+    header {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      padding: 0 20px;
       text-align: center;
+      background: linear-gradient(to right, #0f1117, #1c1f27);
       animation: fadeInDown 1.2s ease;
     }
 
-    .hero img {
-      width: 120px;
-      height: 120px;
-      border-radius: 50%;
-      border: 4px solid var(--accent-color);
-      margin-bottom: 20px;
-    }
-
-    .hero h1 {
-      font-size: 2.8rem;
+    header h1 {
+      font-size: 3.5rem;
+      color: var(--accent);
       margin-bottom: 10px;
     }
 
-    .hero p {
-      font-size: 1.1rem;
-      max-width: 600px;
-      margin: 0 auto;
-      line-height: 1.6;
+    header h2 {
+      font-size: 1.6rem;
+      color: #ccc;
+      font-weight: 400;
+      margin-bottom: 30px;
+    }
+
+    header p {
+      max-width: 800px;
+      font-size: 1.05rem;
+      color: #aaa;
     }
 
     .section {
-      max-width: 900px;
-      margin: 40px auto;
-      background: var(--card-bg);
-      padding: 30px;
+      max-width: 1100px;
+      margin: 60px auto;
+      padding: 40px;
+      background: var(--card);
+      backdrop-filter: var(--blur);
       border-radius: 16px;
-      backdrop-filter: var(--glass);
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
-      animation: fadeInUp 1s ease;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+      animation: fadeInUp 1s ease-in-out;
     }
 
-    h2 {
-      font-size: 1.6rem;
-      color: var(--accent-color);
+    h2.section-title {
+      font-size: 1.8rem;
+      color: var(--accent);
       margin-bottom: 20px;
-      border-bottom: 2px solid var(--accent-color);
+      border-bottom: 2px solid var(--accent);
       display: inline-block;
-      padding-bottom: 4px;
+      padding-bottom: 6px;
     }
 
     ul {
@@ -106,182 +89,125 @@
 
     ul li::before {
       content: "✔";
-      color: var(--accent-color);
+      color: var(--accent);
       margin-right: 10px;
     }
 
-    .projects a {
+    .projects a, .contact a, .cta a, .resume-btn {
       display: inline-block;
-      margin: 6px 8px 0 0;
-      padding: 8px 16px;
+      margin: 8px 10px 0 0;
+      padding: 10px 20px;
       border-radius: 30px;
-      background: var(--accent-color);
+      background: var(--accent);
       color: #000;
       text-decoration: none;
-      font-size: 0.9rem;
       font-weight: 600;
-      transition: transform 0.2s ease;
+      transition: transform 0.3s ease;
     }
 
-    .projects a:hover {
+    .projects a:hover, .contact a:hover, .cta a:hover, .resume-btn:hover {
       transform: scale(1.05);
-      background: #00cbb7;
-    }
-
-    .contact a {
-      display: inline-block;
-      margin: 10px 15px 0 0;
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 1rem;
-      color: var(--accent-color);
-      transition: color 0.3s ease;
-    }
-
-    .contact a:hover {
-      color: #00cbb7;
     }
 
     .cta {
       text-align: center;
-      margin: 50px 0 20px;
-      font-size: 1.2rem;
-    }
-
-    .cta a {
-      background: var(--accent-color);
-      color: #000;
-      padding: 12px 26px;
-      border-radius: 30px;
-      text-decoration: none;
-      font-weight: 700;
-      display: inline-block;
-      margin-top: 15px;
-      transition: all 0.3s ease;
-    }
-
-    .cta a:hover {
-      transform: scale(1.05);
-      background: #00cbb7;
+      margin-top: 60px;
     }
 
     footer {
       text-align: center;
-      padding: 40px 10px 20px;
-      font-size: 0.8rem;
+      font-size: 0.85rem;
+      padding: 40px 10px;
       color: #aaa;
     }
 
-    @keyframes fadeInUp {
-      from {
-        opacity: 0;
-        transform: translateY(40px);
-      }
-
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-40px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
-    @keyframes fadeInDown {
-      from {
-        opacity: 0;
-        transform: translateY(-40px);
-      }
-
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
     @media (max-width: 600px) {
-      .hero h1 {
-        font-size: 2rem;
-      }
-
-      .cta {
-        font-size: 1rem;
+      header h1 {
+        font-size: 2.2rem;
       }
     }
   </style>
 </head>
 
 <body>
-
-  <button class="toggle-theme" onclick="toggleTheme()" aria-label="Toggle Theme">
-    <i id="theme-icon" class="fas fa-moon"></i>
-  </button>
-
-  <div class="hero">
-    <img src="./coding.png" alt="Kabeer Avatar" />
+  <header>
     <h1>Kabeer Shahzad</h1>
+    <h2>Software Developer | Full Stack Engineer | Problem Solver</h2>
     <p>
-      Bachelor of Computational Sciences at <strong>University of Faisalabad</strong><br />
-      I'm a full-stack developer passionate about crafting seamless digital experiences, from designing elegant user
-      interfaces to architecting robust backend systems. With a blend of creativity and logic, I build modern web and
-      desktop applications that solve real-world problems. Whether it's a startup idea or a polished product, I bring
-      precision, speed, and clarity to every project.
+      Welcome! I'm a developer driven by creativity and purpose. With a Bachelor's in Computer Science from <strong>The University of Faisalabad</strong> and years of hands-on experience, I specialize in building elegant frontend interfaces, solid backends, and powerful full-stack solutions. From freelance gigs to large-scale systems, I bring clarity, speed, and impact to every line of code.
     </p>
-
-  </div>
+  </header>
 
   <div class="section">
-    <h2>Skills</h2>
+    <h2 class="section-title">What I Do</h2>
     <ul>
-      <li>C# (Desktop Applications)</li>
-      <li>MERN Stack</li>
-      <li>JavaScript (Full-stack)</li>
-      <li>Java & Android</li>
-      <li>MongoDB, SQL</li>
+      <li>Desktop Application Development using .NET (C#)</li>
+      <li>Mobile App Development (Android/Java)</li>
+      <li>Modern Web Application Development (MERN stack)</li>
+      <li>POS System Architecture & Design</li>
+      <li>API Development & Integration</li>
+      <li>Data Analysis and Reporting Tools</li>
     </ul>
   </div>
 
   <div class="section">
-    <h2>Featured Projects</h2>
+    <h2 class="section-title">Skills & Technologies</h2>
+    <ul>
+      <li>MERN Stack (MongoDB, Express, React, Node.js)</li>
+      <li>C#, Java, JavaScript, SQL</li>
+      <li>Desktop App Development (.NET, Java)</li>
+      <li>RESTful APIs, OpenCV, Stripe Integration</li>
+      <li>Agile Methodologies, Git, Microsoft Office</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2 class="section-title">Projects</h2>
     <div class="projects">
-      <a href="https://dcompress.vercel.app/" target="_blank">D-Compress</a>
+      <a href="https://dcompress.vercel.app" target="_blank">D-Compress</a>
       <a href="https://intl.superexpresscargo.com" target="_blank">Super Express Cargo</a>
-      <a href="#">Attendance System</a>
-      <a href="#">To-Do App</a>
-      <a href="#">React Chat App</a>
+      <a href="#">Ease Provider (Freelancer Platform)</a>
+      <a href="#">AI Attendance System (Face Recognition)</a>
+      <a href="#">Point of Sale in Java</a>
+      <a href="#">Desktop Cargo Manager (C#)</a>
     </div>
   </div>
 
   <div class="section">
-    <h2>Contact & Links</h2>
+    <h2 class="section-title">Experience & Education</h2>
+    <ul>
+      <li><strong>Software Engineer Intern</strong> — Digiskills (2023)</li>
+      <li><strong>Bachelor of Science in Computer Science</strong> — The University of Faisalabad (2019 - 2023)</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2 class="section-title">Contact</h2>
     <div class="contact">
       <a href="mailto:kabeershahzad01@gmail.com"><i class="fas fa-envelope"></i> Email</a>
-      <a href="https://wa.me/+923138904098" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+      <a href="https://wa.me/923138904098" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
       <a href="https://github.com/kabeershahzad" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+      <a href="https://www.linkedin.com/in/kabeer-shahzad-883107134/" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
     </div>
   </div>
 
   <div class="cta">
-    <p>Got a project in mind? I'm available for freelance and collaboration!</p>
-    <a href="mailto:kabeershahzad01@gmail.com">Let’s Work Together</a>
+    <p>Have a project in mind or need a custom solution? Let’s bring it to life.</p>
+    <a href="mailto:kabeershahzad01@gmail.com">Let's Collaborate</a>
   </div>
 
-  <footer>&copy; 2025 Kabeer Shahzad — Designed & Built with 💻 and ☕</footer>
-
-  <script>
-    function toggleTheme() {
-      const body = document.body;
-      const icon = document.getElementById('theme-icon');
-      body.classList.toggle('light-mode');
-      icon.classList.toggle('fa-sun');
-      icon.classList.toggle('fa-moon');
-    }
-
-    window.addEventListener('DOMContentLoaded', () => {
-      const icon = document.getElementById('theme-icon');
-      if (document.body.classList.contains('light-mode')) {
-        icon.classList.replace('fa-moon', 'fa-sun');
-      }
-    });
-  </script>
-
+  <footer>
+    &copy; 2025 Kabeer Shahzad — Designed & Built with 💻, ❤️ and ☕
+  </footer>
 </body>
-
 </html>
